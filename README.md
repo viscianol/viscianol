@@ -54,12 +54,36 @@ Engenheiro de Dados e Analytics Engineer com mais de 7 anos de experiência no e
 ---
 
 ## 🚀 Arquiteturas & Destaques de Produção
-┌─────────────────────────────────┐ │ FONTES HETEROGÊNEAS │ APIs Bancárias (DTVM/BaaS) • Core Bancário BMP • Scraping TOTP • SFTPs └────────────────┬────────────────┘ │ (Ingestão Automatizada & Assinaturas Digitais) ▼ ┌─────────────────────────────────┐ │ ARQUITETURA MEDALLION (Smith) │ BRONZE (JSONB/SHA-256) ➔ SILVER (Tipada/Idempotente) ➔ GOLD (Dimensões/Fatos) └────────────────┬────────────────┘ │ (Métricas, Solver de TIR Newton-Halley & Governança CVM) ▼ ┌─────────────────────────────────┐ │ CAMADA DE CONSUMO & DECISÃO │ Dashboards Executivos C-Level (Streamlit Multi-Tenant) • FastAPI • E-mails PDF └─────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph S1 ["📥 FONTES & INGESTÃO HETEROGÊNEA"]
+        F1["APIs Bancárias (DTVM / BaaS com Chave Criptográfica)"]
+        F2["Core Bancário BMP (Web Scraping com TOTP)"]
+        F3["Integrações SFTP (URs de Cartão & Serasa)"]
+    end
+
+    subgraph S2 ["🏛️ ARQUITETURA MEDALLION (PostgreSQL)"]
+        direction TB
+        B["🥉 BRONZE: JSONB Imutável, Deduplicação SHA-256 & Índices GIN"]
+        S["🥈 SILVER: Normalização Tipada, Idempotência & Backfills CLI"]
+        G["🥇 GOLD: Modelagem Dimensão/Fato Multi-Entidade & Snapshots"]
+        B --> S --> G
+    end
+
+    subgraph S3 ["📊 CAMADA DE CONSUMO & DECISÃO"]
+        C1["Dashboards C-Level (Streamlit Multi-Tenant)"]
+        C2["Microsserviços & Painéis TV (FastAPI & React/Vite)"]
+        C3["Fechamento Financeiro & Conciliação Automatizada (PDF/E-mail)"]
+    end
+
+    S1 -->|"Pipelines de Ingestão"| B
+    G -->|"Solvers TIR, Métricas CVM & Floating"| S3
+```
 
 
 ### Principais Frentes Técnicas Desenvolvidas:
 1. **Plataforma de Dados Medallion & Fechamento Financeiro:** Ingestão de APIs de custódia e core bancário com deduplicação por hash, conciliação diária de receitas (tarifas e floating) e geração automática de relatórios executivos para diretoria.
-2. **Framework de Dados Modular (`morpheus`):** Template de microsserviço corporativo em FastAPI, SQLAlchemy e Alembic, preparado para testes in-memory com SQLite e orquestração de crons via APScheduler.
+2. **Framework de Dados Modular:** Template de microsserviço corporativo em FastAPI, SQLAlchemy e Alembic, preparado para testes in-memory com SQLite e orquestração de crons via APScheduler.
 3. **APIs Transacionais & Geração CNAB 444:** Desenvolvimento de endpoints externos de alta performance em NestJS/Prisma com queries SQL raw em paralelo e motor de geração de arquivos posicionais bancários CNAB 444.
 4. **Motor de Simulação & Regras de Negócio (Solo RPG Engine):** Projeto autoral explorando Orientação a Objetos avançada, Design Patterns (State, Factory), controle determinístico de eventos e suíte completa de testes unitários.
 
