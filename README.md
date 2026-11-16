@@ -5,7 +5,7 @@
 💼 Conectando regras de negócio financeiras complexas a arquiteturas de dados escaláveis, resilientes e de alta performance.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/lucasvisciano)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lucas.visciano@gmail.com)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lucas.visciano@hotmail.com)
 [![Portfolio Status](https://img.shields.io/badge/Status-Dispon%C3%ADvel%20para%20Novos%20Desafios-success?style=for-the-badge)]()
 
 ---
@@ -54,12 +54,13 @@ Engenheiro de Dados e Analytics Engineer com mais de 7 anos de experiência no e
 ---
 
 ## 🚀 Arquiteturas & Destaques de Produção
+
 ```mermaid
 flowchart TD
     subgraph S1 ["📥 FONTES & INGESTÃO HETEROGÊNEA"]
-        F1["APIs Bancárias (DTVM / BaaS com Chave Criptográfica)"]
-        F2["Core Bancário BMP (Web Scraping com TOTP)"]
-        F3["Integrações SFTP (URs de Cartão & Serasa)"]
+        F1["APIs Bancárias (DTVM / BaaS com Assinatura Criptográfica)"]
+        F2["Core Bancário & Web Scraping Resiliente (com TOTP)"]
+        F3["Integrações SFTP (URs de Cartão & Birôs de Crédito)"]
     end
 
     subgraph S2 ["🏛️ ARQUITETURA MEDALLION (PostgreSQL)"]
@@ -79,7 +80,6 @@ flowchart TD
     S1 -->|"Pipelines de Ingestão"| B
     G -->|"Solvers TIR, Métricas CVM & Floating"| S3
 ```
-
 
 ### Principais Frentes Técnicas Desenvolvidas:
 1. **Plataforma de Dados Medallion & Fechamento Financeiro:** Ingestão de APIs de custódia e core bancário com deduplicação por hash, conciliação diária de receitas (tarifas e floating) e geração automática de relatórios executivos para diretoria.
@@ -104,5 +104,5 @@ flowchart TD
 Estou ativamente aberto a conexões e novas oportunidades em **Analytics Engineering**, **Engenharia de Dados** e **Arquitetura de Dados em Fintechs**:
 
 - **LinkedIn:** [linkedin.com/in/lucasvisciano](https://linkedin.com/in/lucasvisciano)
-- **E-mail:** [lucas.visciano@gmail.com](mailto:lucas.visciano@gmail.com)
+- **E-mail:** [lucas.visciano@gmail.com](mailto:lucas.visciano@hotmail.com)
 - **Localização:** São Paulo, SP (Disponível para atuar Remoto ou Híbrido)
